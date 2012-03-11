@@ -1,0 +1,20 @@
+development: &development
+  adapter: postgresql
+  encoding: unicode
+  database: yenta_development
+  pool: 5
+  host: localhost
+  username: yenta
+  password:
+
+test: &test
+  adapter: postgresql
+  encoding: unicode
+  database: yenta_test
+  pool: 5
+  host: localhost
+  username: yenta
+  password:
+
+production:
+ <<: *development
