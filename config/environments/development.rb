@@ -34,4 +34,7 @@ Yenta::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+
+  FACEBOOK_APP_ID = "314646495257580"
+  FACEBOOK_APP_SECRET = "3cc779adc9da4dd53dd4e05b0fe724d4"
 end

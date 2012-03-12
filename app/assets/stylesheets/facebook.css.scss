@@ -1,0 +1,78 @@
+a.facebook-login-button {
+  background: image-url("sprites/facebook.png") no-repeat scroll 0 0 #29447E;
+  text-decoration: none;
+  background-position: left -188px;
+  font-size: 11px;
+  line-height: 14px;
+
+  cursor: pointer;
+  display: inline-block;
+  outline: medium none;
+  padding: 0 0 0 1px;
+
+  span {
+    background: image-url("sprites/facebook.png") repeat scroll 0 0 #5F78AB;
+    border-bottom: 1px solid #1A356E;
+    border-top: 1px solid #879AC0;
+    color: #FFFFFF;
+    display: block;
+    font-family: "lucida grande",tahoma,verdana,arial,sans-serif;
+    font-weight: bold;
+    margin: 1px 1px 0 21px;
+    padding: 2px 6px 3px;
+    text-shadow: none;
+  }
+
+  &:active {
+    background-position: left -210px;
+    color: #1982A0;
+    text-decoration: none;
+
+    span {
+      background: none repeat scroll 0 0 #4F6AA3;
+      border-bottom: 1px solid #29447E;
+      border-top: 1px solid #45619D;
+      text-shadow: none;
+    }
+  }
+}
+
+a.facebook-login-button-large {
+  background: image-url("sprites/facebook.png") no-repeat scroll 0 0 #29447E;
+  text-decoration: none;
+  background-position: left -60px;
+  font-size: 18px;
+  line-height: 31px;
+
+  cursor: pointer;
+  display: inline-block;
+  outline: medium none;
+  padding: 0 0 0 1px;
+
+  span {
+    background: image-url("sprites/facebook.png") repeat scroll 0 0 #5F78AB;
+    border-bottom: 1px solid #1A356E;
+    border-top: 1px solid #879AC0;
+    color: #FFFFFF;
+    display: block;
+    font-family: "lucida grande",tahoma,verdana,arial,sans-serif;
+    font-weight: bold;
+    margin: 1px 1px 0 39px;
+    padding: 2px 10px 3px;
+    text-shadow: none;
+  }
+
+  &:active {
+    background-position: left -99px;
+    color: #1982A0;
+    text-decoration: none;
+
+    span {
+      background: none repeat scroll 0 0 #4F6AA3;
+      border-bottom: 1px solid #29447E;
+      border-top: 1px solid #45619D;
+      text-shadow: none;
+    }
+  }
+}
+

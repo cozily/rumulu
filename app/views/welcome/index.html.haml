@@ -1,0 +1,12 @@
+- if user_signed_in?
+  #introduction.span8.offset2.well
+    %h1 Hey there, #{current_user.first_name}!
+
+- else
+  #introduction.span12
+    .hero-unit
+      %h1 Looking for a roommate?
+      %p We help you share and vote on candidates with your roommates and set up interviews easily with our calendar tool.
+      %p Ready to get started? Just sign in with Facebook.
+      %a.facebook-login-button-large{href: user_omniauth_authorize_path(:facebook)}
+        %span Connect with Facebook

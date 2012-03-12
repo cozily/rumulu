@@ -64,4 +64,7 @@ Yenta::Application.configure do
   # Log the query plan for queries taking more than this (works
   # with SQLite, MySQL, and PostgreSQL)
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
+
+  FACEBOOK_APP_ID = "270635853013400"
+  FACEBOOK_APP_SECRET = "4a5bb1bffa9092f92a7215b777d16c26"
 end
