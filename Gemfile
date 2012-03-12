@@ -2,6 +2,7 @@ source :rubygems
 
 gem "rails", "3.2.2"
 
+gem "compass-rails"
 gem "devise"
 gem "haml-rails"
 gem "jquery-rails"
