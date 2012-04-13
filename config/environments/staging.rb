@@ -67,6 +67,20 @@ Rumulu::Application.configure do
 
   config.action_mailer.default_url_options = {:host => 'staging.rumulu.com'}
 
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.default_charset = "utf-8"
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.smtp_settings = {
+    :enable_starttls_auto => true,
+    :authentication => :plain,
+    :address => "smtp.mailgun.org",
+    :port => 587,
+    :domain => "app3924834.mailgun.org",
+    :user_name => "postmaster@app3924834.mailgun.org",
+    :password => "marathon69"
+  }
+
   FACEBOOK_APP_ID = "165275193594823"
   FACEBOOK_APP_SECRET = "ac806c0885b1bcd1b7447f2d5dffc8ae"
 
