@@ -1,0 +1,25 @@
+apps:
+  production: rumulu
+  staging: rumulu-staging
+
+stacks:
+  all: cedar
+
+config:
+  all:
+    BUNDLE_WITHOUT: "test:development"
+
+collaborators:
+  all:
+    - "todd.persen@gmail.com"
+
+domains:
+  production:
+    - "rumulu.com"
+    - "www.rumulu.com"
+  staging:
+    - "staging.rumulu.com"
+
+addons:
+  all:
+    - custom_domains:basic

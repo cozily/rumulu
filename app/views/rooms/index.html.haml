@@ -1,0 +1,27 @@
+- if @rooms.empty?
+  .span8.offset2
+    .hero-unit
+      %p It looks like you haven't added any rooms yet. Let's get started.
+
+      = link_to raw("Add your first room!"), new_room_path, :class => "btn btn-primary"
+- else
+  .span8
+
+    .page-header
+      %h1 Your Rooms
+
+    %table.table.table-striped.table-bordered
+      %thead
+        %tr
+          %th Address
+          %th Price
+          %th Applicants
+          %th Status
+      %tbody
+        - @rooms.each do |room|
+          %tr
+            %td= link_to room.address, edit_room_path(room)
+            %td= number_to_currency(room.price, {precision: 0})
+            %td= link_to room.applications.count, room_applications_path(room)
+            %td
+              %span.label.label-info Active

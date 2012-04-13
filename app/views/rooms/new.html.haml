@@ -1,0 +1,11 @@
+.span8
+  = simple_form_for @room, html: {class: "form-horizontal"} do |f|
+    %legend Create a New Room
+
+    = f.input :address, input_html: {class: "input-xlarge"}
+    = f.input :price, input_html: {class: "input-small"}
+    = f.input :utilities_included, label: "Utilities Included?"
+    = f.input :description, input_html: {class: "span5", rows: 3}
+
+    .form-actions
+      = f.button :submit, class: "btn-primary"

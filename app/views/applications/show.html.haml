@@ -1,0 +1,54 @@
+.span8
+  %legend Application for #{@room.address}
+
+  - (1..3).each do |n|
+    %h3= @room.send("question_#{n}")
+    %p= @application.send("answer_#{n}")
+
+  %h3 Your age
+  %p= @application.age
+
+  %h3 Your gender
+  %p= @application.gender
+
+  %h3 Do you have any pets?
+  %p= @application.has_pets ? "Yes" : "No"
+
+  %h3 Are you a student?
+  %p= @application.is_student ? "Yes" : "No"
+
+  %h3 Is there anything else you want to tell us about yourself?
+  %p= @application.comments
+
+  - unless @application.user == current_user
+    %legend Messages
+    %ul#messages
+      = render partial: "messages/message", collection: @application.messages
+
+    = simple_form_for([@room, @application, Message.new], remote: true, html: {class: "well", id: "create_message"}) do |f|
+      = f.input :body, label: "Send this user a message", input_html: {class: "span6", rows: 3}
+      = f.submit
+
+
+
+- if @application.user == current_user
+  .span4
+    %legend Thanks for applying!
+    %p Someone will be in touch with you shortly.
+
+- else
+  .span4
+    .well
+      %legend Vote on this application
+
+      #votes
+        = render partial: "applications/vote", locals: {room: @room, application: @application}
+
+    .well
+      - if @application.disabled?
+        %h3 This application has been disabled.
+      - else
+        %legend Don't want to see it anymore?
+
+        = link_to(disable_room_application_path(@room, @application), method: :put, confirm: "Are you sure you're done considering this application?") do
+          %button.btn.btn-large.btn-danger Discard This Application

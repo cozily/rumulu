@@ -1,5 +1,20 @@
-Yenta::Application.routes.draw do
+Rumulu::Application.routes.draw do
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+
+  resources :rooms do
+    resources :applications do
+      member do
+        put "disable"
+      end
+
+      resources :messages
+      resources :votes
+    end
+    resources :collaborators
+    resource :photos
+  end
+
+  match "/r/:token" => "rooms#redirect"
 
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
@@ -48,4 +63,6 @@ Yenta::Application.routes.draw do
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
   root :to => 'welcome#index'
+
+
 end

@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-Yenta::Application.load_tasks
+Rumulu::Application.load_tasks

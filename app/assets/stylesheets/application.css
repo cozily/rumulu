@@ -9,6 +9,7 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
+ *= require fileuploader
  *= require_tree .
 */
 
@@ -42,4 +43,12 @@
 footer {
   border-top: 1px solid #eee;
   padding-top: 10px;
+}
+
+table.table tr.disabled {
+  opacity: 0.5;
+}
+
+.important {
+  background-color: #ffff82 !important;
 }

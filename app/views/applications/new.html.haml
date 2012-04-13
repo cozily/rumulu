@@ -1,0 +1,15 @@
+.span8
+  = simple_form_for [@room, @application], html: {class: "form-horizontal"} do |f|
+    %legend Apply for this room
+
+    - (1..3).each do |n|
+      = f.input "answer_#{n}", as: :text, label: @room.send("question_#{n}"), input_html: {class: "span5", rows: 4}
+
+    = f.input :age, label: "How old are you?", collection: 16..121, input_html: {class: "input-small"}
+    = f.input :gender, as: :radio_buttons, collection: ["Male", "Female"], input_html: {class: "input-small"}
+    = f.input :has_pets, as: :radio_buttons, label: "Do you have pets?"
+    = f.input :is_student, as: :radio_buttons, label: "Are you a student?"
+    = f.input :comments, as: :text, label: "Is there anything else you want to tell us about yourself?", input_html: {class: "span5", rows: 3}
+
+    .form-actions
+      = f.button :submit, class: "btn-primary"

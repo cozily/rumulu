@@ -13,4 +13,10 @@
 //= require jquery
 //= require jquery_ujs
 //= require twitter/bootstrap
-//= require_tree .
+//= require fileuploader
+//= require_tree
+
+$(document).ready(function() {
+  content = $("div.content").html()
+  $("textarea#craigslist").html(content.trim());
+});

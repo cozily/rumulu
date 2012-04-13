@@ -1,4 +1,4 @@
-Yenta::Application.configure do
+Rumulu::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
 
   # Code is not reloaded between requests
@@ -64,6 +64,8 @@ Yenta::Application.configure do
   # Log the query plan for queries taking more than this (works
   # with SQLite, MySQL, and PostgreSQL)
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
+
+  config.action_mailer.default_url_options = {:host => 'rumulu.com'}
 
   FACEBOOK_APP_ID = "270635853013400"
   FACEBOOK_APP_SECRET = "4a5bb1bffa9092f92a7215b777d16c26"

@@ -1,19 +1,19 @@
 development: &development
   adapter: postgresql
   encoding: unicode
-  database: yenta_development
+  database: rumulu_development
   pool: 5
   host: localhost
-  username: yenta
+  username: rumulu
   password:
 
 test: &test
   adapter: postgresql
   encoding: unicode
-  database: yenta_test
+  database: rumulu_test
   pool: 5
   host: localhost
-  username: yenta
+  username: rumulu
   password:
 
 production:

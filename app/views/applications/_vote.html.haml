@@ -1,0 +1,13 @@
+- if vote = Vote.find_by_application_id_and_user_id(application.id, current_user.id)
+  %p
+    Congratulations! You voted to
+    - if vote.accepted?
+      %span.label.label-success Accept
+    - else
+      %span.label.label-important Reject
+    this applicant.
+- else
+  %a.application_vote{href: room_application_votes_path(room, application, {accepted: true}), "data-method" => "post", "data-remote" => true}
+    %button.btn.btn-large.btn-success Accept
+  %a.application_vote{href: room_application_votes_path(room, application, {accepted: false}), "data-method" => "post", "data-remote" => true}
+    %button.btn.btn-large.btn-danger Reject

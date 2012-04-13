@@ -1,0 +1,26 @@
+.span8
+  %legend Details for #{@room.address}
+
+  %h3 Price
+  %p= number_to_currency(@room.price, {precision: 0})
+
+  %h3 Utilities Included
+  %p= @room.utilities_included? ? "Yes" : "No"
+
+  %h3 Description
+  %p= @room.description
+
+.span4
+  .well.important
+    %h2 Want to apply for this room?
+
+    = link_to new_room_application_path(@room) do
+      %button.btn.btn-large.btn-primary Apply now!
+
+.span8
+  %legend Photos
+
+  %ul.thumbnails
+    - @room.photos.each do |photo|
+      %li.span4
+        %a.thumbnail= image_tag photo.image.url(:large)

@@ -1,0 +1,13 @@
+.span8
+  %legend Add photos for your room
+
+  %ul.thumbnails
+    = render :partial => "thumbnails", :locals => {:room => @room}
+
+  = simple_form_for @room, html: {class: "form-horizontal", multipart: true} do |f|
+
+    #upload-photos{:"data-upload-path" => room_photos_path(@room)}
+
+    .form-actions
+      = f.button :submit, class: "btn-primary"
+

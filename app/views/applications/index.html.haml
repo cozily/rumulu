@@ -1,0 +1,37 @@
+- if @applications.empty?
+  .span8.offset2
+    .hero-unit
+      %p You haven't received any applications yet.
+
+- else
+  .span12
+
+    .page-header
+      %h1 Applications for #{@room.address}
+
+    %table.table.table-striped.table-bordered
+      %thead
+        %tr
+          %th Applicant
+          %th Date Applied
+          %th Age
+          %th Gender
+          %th Votes
+      %tbody
+        - @applications.each do |application|
+          %tr{:class => ("disabled" if application.disabled?)}
+            %td= link_to application.user.full_name, room_application_path(@room, application)
+            %td= application.created_at.strftime("%m/%d/%Y")
+            %td= application.age
+            %td= application.gender
+            %td
+              - application.room.contacts.each do |user|
+                - vote = Vote.find_by_user_id_and_application_id(user.id, application.id)
+                - user_name = (user == current_user ? "You" : user.full_name)
+
+                - if vote.nil?
+                  %span.label= user_name
+                - elsif vote.accepted?
+                  %span.label.label-success= user_name
+                - else
+                  %span.label.label-important= user_name

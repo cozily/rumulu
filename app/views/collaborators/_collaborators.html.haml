@@ -1,0 +1,4 @@
+- room.collaborators.each do |collaborator|
+  = render :partial => "collaborators/collaborator", :locals => {:user => collaborator.user}
+
+

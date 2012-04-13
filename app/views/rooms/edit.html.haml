@@ -1,0 +1,56 @@
+.span8
+  %legend Photos
+
+  %ul.thumbnails
+    = render :partial => "photos/thumbnails", :locals => {:room => @room}
+
+  #upload-photos{:"data-upload-path" => room_photos_path(@room)}
+
+- if @room.photos.count > 0
+  .span4
+    .well.important
+      %h2 Share This Room
+
+      %ol
+        %li Now that you've created your room, use this link to share with applicants on Craigslist, Facebook, or anywhere else.
+        %li You'll receive an email notification any time a new application is submitted.
+        %li You can review the applications and decide if they seem like a good fit.
+
+      %h3 Copy this URL
+      %input.span3{value: "http://rumulu.com/r/#{@room.token}", readonly: true}
+
+      %h3 Copy this HTML
+      %p You can share this link with potential applicants on Craigslist, Facebook, etc.
+
+      .control-group.text.optional
+        .controls
+          %textarea#craigslist.span3{rows: 5}
+
+.span8
+  %legend Collaborators
+
+  %ul#collaborators
+    = render :partial => "collaborators/collaborators", :locals => {:room => @room}
+
+  = simple_form_for([@room, Collaborator.new], remote: true, html: {class: "form-inline", id: "create_collaborator"}) do |f|
+    = f.simple_fields_for :user do |ff|
+      = ff.input_field :email, label: false, input_html: {class: "input-large", placeholder: "Email"}
+    = f.button :submit, "Add"
+
+.span8
+  = simple_form_for @room, html: {class: "form-horizontal"} do |f|
+    %legend Questions
+
+    - (1..3).each do |n|
+      = f.input "question_#{n}", input_html: {class: "span5"}
+
+    %legend Details
+
+    = f.input :address, input_html: {class: "input-xlarge"}
+    = f.input :price, input_html: {class: "input-small"}
+    = f.input :utilities_included, label: "Utilities Included?"
+    = f.input :description, input_html: {class: "span5", rows: 3}
+
+    .form-actions
+      = f.button :submit, class: "btn btn-primary"
+

@@ -6,7 +6,9 @@ class User < ActiveRecord::Base
 
   attr_accessible :email, :password, :password_confirmation, :remember_me, :first_name, :last_name
 
+  has_many :applications
   has_many :authentications
+  has_many :rooms
 
   class << self
     def find_for_facebook_oauth(access_token, signed_in_resource=nil)
@@ -15,6 +17,9 @@ class User < ActiveRecord::Base
                                           :uid => access_token.uid,
                                           :token => access_token.credentials.token)
       if user = User.where(:email => data.email).first
+        if user.first_name.blank? || user.last_name.blank?
+          user.update_attributes(first_name: data.first_name, last_name: data.last_name)
+        end
         user
       else
         user = User.create!(:email => data.email,
@@ -25,5 +30,15 @@ class User < ActiveRecord::Base
       user.authentications << authentication
       user
     end
+  end
+
+  def set_random_passwords
+    random_password = SecureRandom.base64(8).tr("+/=lIO0", "pqrsxyz")
+    self.password_confirmation = self.password = random_password
+  end
+
+  def full_name
+    name = [self.first_name, self.last_name].join(" ").strip
+    name.empty? ? self.email.split("@").first.titleize : name
   end
 end

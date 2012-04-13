@@ -1,4 +1,4 @@
-Yenta::Application.configure do
+Rumulu::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
 
   # In the development environment your application's code is reloaded on
@@ -34,6 +34,11 @@ Yenta::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+
+  config.action_mailer.default_url_options = {host: "localhost:3000"}
+
+  ActionMailer::Base.delivery_method = :smtp
+  ActionMailer::Base.smtp_settings = {address: "localhost", port: 1025 }
 
   FACEBOOK_APP_ID = "314646495257580"
   FACEBOOK_APP_SECRET = "3cc779adc9da4dd53dd4e05b0fe724d4"
