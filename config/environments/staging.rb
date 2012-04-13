@@ -65,10 +65,10 @@ Rumulu::Application.configure do
   # with SQLite, MySQL, and PostgreSQL)
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
 
-  config.action_mailer.default_url_options = {:host => 'rumulu.com'}
+  config.action_mailer.default_url_options = {:host => 'staging.rumulu.com'}
 
-  FACEBOOK_APP_ID = "326567164072111"
-  FACEBOOK_APP_SECRET = "b246eb6aad0e72811a36d04fa4c50ec8"
+  FACEBOOK_APP_ID = "165275193594823"
+  FACEBOOK_APP_SECRET = "ac806c0885b1bcd1b7447f2d5dffc8ae"
 
-  AWS_S3_BUCKET = "rumulu-production"
+  AWS_S3_BUCKET = "rumulu-staging"
 end

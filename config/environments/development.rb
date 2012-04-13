@@ -40,6 +40,6 @@ Rumulu::Application.configure do
   ActionMailer::Base.delivery_method = :smtp
   ActionMailer::Base.smtp_settings = {address: "localhost", port: 1025 }
 
-  FACEBOOK_APP_ID = "314646495257580"
-  FACEBOOK_APP_SECRET = "3cc779adc9da4dd53dd4e05b0fe724d4"
+  FACEBOOK_APP_ID = "336631159726661"
+  FACEBOOK_APP_SECRET = "28f89f2cb3e901c4199b97f527e4ed5c"
 end
